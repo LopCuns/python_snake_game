@@ -2,7 +2,6 @@
 
 from random import randrange
 
-
 class Apple():
     """Apple class"""
 

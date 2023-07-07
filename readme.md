@@ -5,7 +5,9 @@ To code this app using tkinter I follwed the [tkinter official tutorial](https:/
 
 # File description
  - app.py : Create window interface.
- - constants/tk_constants.py: initialize tkinter root.
+ - constants
+    - tk_constants.py: initialize tkinter root.
+    - game_constants.py: game options.
  - game/game.py: Game frame, canvas and game logic.
  - classes
     - snake.py: snake class.

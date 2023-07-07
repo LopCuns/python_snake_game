@@ -3,14 +3,14 @@
 import tkinter as tk
 from classes.snake import Snake
 from classes.apple import Apple
-from constants.tk_constants import root
-from constants.tk_constants import MAIN_WIDTH
+from constants.tk_constants import ROOT, MAIN_WIDTH
+from constants.game_constants import CANVAS_BG, PART_WIDTH, GAME_SPEED, GAME_DELAY
 # Create the game frame
-game = tk.Frame(root, width=MAIN_WIDTH, height=MAIN_WIDTH)
+game = tk.Frame(ROOT, width=MAIN_WIDTH, height=MAIN_WIDTH)
 # Display game frame in the grid
 game.grid(column=0, row=2)
-# Create the canvas and pack it the root
-main_canvas = tk.Canvas(game, widt=600, height=600, bg='black')
+# Create the canvas and pack it the ROOT
+main_canvas = tk.Canvas(game, widt=MAIN_WIDTH, height=MAIN_WIDTH, bg=CANVAS_BG)
 main_canvas.pack()
 
 
@@ -34,9 +34,9 @@ def init_game():
     # Clear the canvas
     main_canvas.delete('all')
     # Snake draw
-    game_snake = Snake(main_canvas, 40)
+    game_snake = Snake(main_canvas, PART_WIDTH)
     # Apple draw
-    game_apple = Apple(main_canvas, 40)
+    game_apple = Apple(main_canvas, PART_WIDTH)
     # Set the event to controll the snake movement
 
     def controls(event):
@@ -57,7 +57,7 @@ def init_game():
         # Avoid snake head crack
         if (game_snake.moving_to, pressed_key) in unallowed_sequences and \
                 game_snake.get_length() > 1:
-            return game_over(game_snake.get_length())
+            return
         game_snake.moving_to = pressed_key
     # Create the moving snake loop function
 
@@ -79,9 +79,9 @@ def init_game():
         if game_snake.movements[game_snake.moving_to]() == 'over':
             return game_over(game_snake.get_length())
         # Repeat the game loop
-        game.after(100, game_loop)
+        game.after(GAME_SPEED, game_loop)
     # Bind the game controls
-    root.bind('<Key>', controls)
+    ROOT.bind('<Key>', controls)
     # Start the game after a second
-    game.after(1000, game_loop)
+    game.after(GAME_DELAY, game_loop)
     game.mainloop()
