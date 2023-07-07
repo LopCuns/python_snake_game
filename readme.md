@@ -8,8 +8,8 @@ To code this app using tkinter I follwed the [tkinter official tutorial](https:/
  - constants/tk_constants.py: initialize tkinter root.
  - game/game.py: Game frame, canvas and game logic.
  - classes
-  - snake.py: snake class.
-  - apple.py: apple class.
+    - snake.py: snake class.
+    - apple.py: apple class.
 
 # Functionalities
   - When opening the game, a text saying 'Snake game by LopCuns' is seen with three buttons, one to start the game and other to go to author's github and another one to exit the game.
