@@ -33,7 +33,7 @@ class Snake():
 
     def create_part(self, x, y, pcolor=None):
         """Create a new part"""
-        part_color = pcolor if pcolor  else choice(self.colors)
+        part_color = pcolor if pcolor else choice(self.colors)
         part = (x,
                 y,
                 self.canvas.create_rectangle(
@@ -70,4 +70,3 @@ class Snake():
         if Counter([(coord[0], coord[1]) for coord in self.coords]).most_common(1)[0][1] > 1:
             return 'over'
         return 'continue'
-
